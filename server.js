@@ -31,8 +31,8 @@ const requestListener = function (req, res) {
     };
 
     const data = JSON.stringify(myOs, null, 2);
-    fs.writeFileSync("osinfo.json", data, (err) => {});
-    res.writeHead(200, { "Content-Type": "text/plain" });
+    fs.writeFileSync("osinfo.json", data);
+    res.writeHead(201, { "Content-Type": "text/plain" });
     res.end("Your OS info has been saved successfully!");
   } else {
     fs.readFile("./pages/404.html", function (err, data) {
