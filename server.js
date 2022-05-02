@@ -1,5 +1,6 @@
 const http = require("http");
 const fs = require("fs");
+const os = require("os");
 
 const host = "localhost";
 const port = 3000;
@@ -22,12 +23,12 @@ const requestListener = function (req, res) {
     });
   } else if (url === "/sys") {
     const myOs = {
-      hostname: "the os host name",
-      platform: "the os platform",
-      architecture: "the os architecture",
-      numberOfCPUS: "the os number of cores",
-      networkInterfaces: "os network interfaces",
-      uptime: "os uptime",
+      hostname: os.hostname(),
+      platform: os.platform(),
+      architecture: os.arch(),
+      numberOfCPUS: os.cpus(),
+      networkInterfaces: os.networkInterfaces(),
+      uptime: os.uptime(),
     };
 
     const data = JSON.stringify(myOs, null, 2);
